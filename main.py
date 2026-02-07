@@ -6,7 +6,7 @@ import pygame
 
 # -------- Helper to get correct folder for EXE --------
 def resource_path(filename):
-    if getattr(sys, 'frozen', False):  # If running as EXE
+    if getattr(sys, 'frozen', False):  # running as EXE
         folder = sys._MEIPASS
     else:
         folder = os.path.dirname(os.path.abspath(__file__))
