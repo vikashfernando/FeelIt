@@ -1,7 +1,7 @@
 import time
-from playsound import playsound
 import webbrowser
 import os
+import pygame  # new
 
 # Ask user to start
 start = input("Do you want to start the program? (y/n): ")
@@ -13,7 +13,6 @@ if start.lower() != "y":
 # Instructions
 print("\nPlease use headphones 🎧")
 time.sleep(1)
-
 print("Set volume to 80% 🔊")
 time.sleep(1)
 
@@ -24,19 +23,32 @@ if ready.lower() != "y":
     print("Program stopped.")
     exit()
 
-# Play music
-print("\nPlaying music...")
-playsound("music.mp3")
+# Initialize pygame mixer
+pygame.mixer.init()
+pygame.mixer.music.load("music.mp3")
+pygame.mixer.music.play()  # plays in background
 
-# Show text with time
 print("\nClose your eyes...")
-time.sleep(2)
+time.sleep(5)
 
 print("Feel the music...")
 time.sleep(2)
 
 print("Let your heart listen...")
 time.sleep(2)
+
+print("Let your heart listen...")
+time.sleep(2)
+
+print("Let your heart listen...")
+time.sleep(2)
+
+print("Let your heart listen...")
+time.sleep(2)
+
+# Wait until music finishes
+while pygame.mixer.music.get_busy():
+    time.sleep(1)
 
 # Open image
 print("\nOpening image...")
